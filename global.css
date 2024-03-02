@@ -1,0 +1,16 @@
+@import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fullScreenWindow {
+  @apply w-full h-full left-0 top-0;
+}
+.resizable {
+  transition: opacity 200ms;
+}
+.destroyer {
+  opacity: 0;
+}
