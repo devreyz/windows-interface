@@ -13,7 +13,7 @@ function convertFromWindow(name, elemId) {
     new ResizableWindows(name, document.getElementById(elemId)).getComponent()
   );
 }
-// convertFromWindow("um", "hello");
+ convertFromWindow("um", "hello");
 // convertFromWindow("dois", "my");
 
 // const div = document.createElement("div")

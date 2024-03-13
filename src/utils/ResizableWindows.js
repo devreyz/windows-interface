@@ -61,7 +61,7 @@ export class ResizableWindows {
     };
     const resizable = createElement(
       "div",
-      `w-[320px] h-[260px] border-4 border-gray-800/30 resizable bg-gray-800/30 backdrop-blur-md fixed rounded-md overflow-hidden shadow-md left-8 top-8`,
+      `w-[320px] h-[260px] border-2 border-gray-900 resizable bg-gray-600/30 backdrop-blur-md fixed rounded-md overflow-hidden shadow-md left-8 top-8`,
       ""
     );
     const btnMin = createElement(
@@ -82,7 +82,7 @@ export class ResizableWindows {
 
     const head = createElement(
       "header",
-      "w-full px-3 h-9 select-none  flex gap-3 items-center justify-between text-white bg-gray-800/30",
+      "w-full px-3 h-9 select-none  flex gap-3 items-center justify-between text-white",
       ``
     );
     const headName = createElement(
@@ -338,19 +338,24 @@ export class ResizableWindows {
     const touch = isTouchEvents ? event.touches[0] : event;
     const dx = touch.clientX - this.startX;
     const dy = touch.clientY - this.startY;
-    console.log(dx);
     const draggable = this.component;
-
     draggable.style.left = this.startLeft + dx + "px";
     draggable.style.top = this.startTop + dy + "px";
 
     const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
     const maxWidth = windowWidth - this.startWidth;
-    if (parseInt(draggable.style.left, 10) < 0) {
-      draggable.style.left = 0;
-    } else if (parseInt(draggable.style.left, 10) > maxWidth) {
-      draggable.style.left = maxWidth + "px";
+    const maxHeight = windowHeight - this.startHeight;
+    if (parseInt(draggable.style.top, 10) < 0) {
+      draggable.style.top = 0;
+    } else if (parseInt(draggable.style.top, 10) > maxHeight) {
+      draggable.style.top = maxHeight + "px";
     }
+    //else if (parseInt(draggable.style.top, 10) < 0) {
+    //   draggable.style.top = 0;
+    // } else if (parseInt(draggable.style.top, 10) > maxHeight) {
+    //   draggable.style.top = maxHeight + "px";
+    // }
   }
 
   focusIn(event) {
